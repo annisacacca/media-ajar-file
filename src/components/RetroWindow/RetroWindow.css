@@ -1,0 +1,49 @@
+/* src/components/RetroWindow/RetroWindow.css */
+.jendela {
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+  border: var(--garis) solid var(--ink);
+  box-shadow: var(--bayang);
+}
+
+.jendela__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 0.3em 0.7em;
+  background: var(--blue);
+  color: var(--cream);
+  border-bottom: var(--garis) solid var(--ink);
+  font-family: var(--font-pixel);
+  font-weight: 700;
+  font-size: var(--fs-label);
+}
+
+.jendela__tombol {
+  display: flex;
+  gap: 0.4em;
+}
+
+.jendela__btn {
+  display: block;
+  width: 0.8em;
+  height: 0.8em;
+  border: calc(var(--garis) * 0.7) solid var(--ink);
+}
+
+.jendela__btn--kuning {
+  background: var(--yellow);
+}
+.jendela__btn--hijau {
+  background: var(--green);
+}
+.jendela__btn--merah {
+  background: var(--red);
+}
+
+.jendela__isi {
+  flex: 1;
+  padding: calc(var(--u) * 1.6);
+}

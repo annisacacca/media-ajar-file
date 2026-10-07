@@ -1,0 +1,32 @@
+/* src/App.css */
+/* Gaya halaman galeri uji (sementara). */
+.galeri {
+  display: grid;
+  gap: 2.2rem;
+  justify-items: start;
+  width: min(1100px, 92%);
+  padding: 2.5rem 0 4rem;
+}
+
+.galeri .jendela {
+  width: 100%;
+}
+
+.galeri__kisi {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 1.5rem;
+}
+
+.galeri__item {
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.galeri__item figcaption {
+  font-family: var(--font-pixel);
+  font-size: 22px;
+}

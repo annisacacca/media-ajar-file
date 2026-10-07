@@ -1,0 +1,11 @@
+// src/components/icons/index.js
+// Satu pintu untuk mengambil semua ikon: import { FolderIcon } from '../icons'
+export { default as FolderIcon } from './FolderIcon'
+export { default as DocIcon } from './DocIcon'
+export { default as ImageIcon } from './ImageIcon'
+export { default as AudioIcon } from './AudioIcon'
+export { default as CodeIcon } from './CodeIcon'
+export { default as ArchiveIcon } from './ArchiveIcon'
+export { default as TrashIcon } from './TrashIcon'
+export { default as StarIcon } from './StarIcon'
+export { default as FullscreenIcon } from './FullscreenIcon'

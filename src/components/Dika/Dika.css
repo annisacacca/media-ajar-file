@@ -1,0 +1,50 @@
+/* src/components/Dika/Dika.css */
+.dika {
+  display: inline-block;
+  line-height: 0;
+}
+
+.dika svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  transform-origin: 50% 100%;
+}
+
+/* Animasi idle: naik turun pelan */
+.dika--idle svg {
+  animation: dika-naik-turun 2.4s ease-in-out infinite;
+}
+
+/* Semangat dan bangga: lebih lincah */
+.dika--idle.dika--semangat svg,
+.dika--idle.dika--bangga svg {
+  animation-name: dika-loncat;
+  animation-duration: 0.8s;
+}
+
+/* Sedih: lebih pelan */
+.dika--idle.dika--sedih svg {
+  animation-duration: 4s;
+}
+
+@keyframes dika-naik-turun {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4%);
+  }
+}
+
+@keyframes dika-loncat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-9%);
+  }
+}

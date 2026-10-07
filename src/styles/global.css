@@ -1,0 +1,162 @@
+/* src/styles/global.css */
+
+/* Font dari Google Fonts (butuh internet). @import harus paling atas. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Pixelify+Sans:wght@400;500;700&display=swap');
+
+:root {
+  /* ===== Palet utama ===== */
+  --blue: #2F5DFF;
+  --yellow: #FFD43B;
+  --red: #E8412F;
+  --green: #3BB273;
+  --cream: #FFF6E0;
+  --ink: #14213D;
+
+  /* ===== Warna pendukung ===== */
+  --sky: #BFE3FF;
+  --beige: #F0E2C0;
+  --skin: #FFCF9F;
+  --pink: #FF8FA3;
+  --white: #FFFFFF;
+
+  /* ===== Font (didefinisikan sekali di sini) ===== */
+  --font-pixel: 'Pixelify Sans', 'Courier New', monospace;
+  --font-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* ===== Satuan ukuran =====
+     --u = 1% lebar layar 16:9 (kalau layar lebih lebar, dibatasi tingginya) */
+  --u: calc(min(100vw, 100vh * 16 / 9) / 100);
+
+  /* Outline dan bayangan keras (tanpa blur) */
+  --garis: max(3px, calc(var(--u) * 0.2));
+  --geser: max(5px, calc(var(--u) * 0.5));
+  --bayang: var(--geser) var(--geser) 0 var(--ink);
+
+  /* Ukuran teks: isi minimal 22px untuk proyektor */
+  --fs-isi: max(22px, calc(var(--u) * 1.6));
+  --fs-label: max(22px, calc(var(--u) * 1.5));
+  --fs-judul: max(36px, calc(var(--u) * 3.6));
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-isi);
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--sky);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-pixel);
+  line-height: 1.15;
+  margin: 0;
+}
+
+/* Penanda fokus keyboard yang jelas (penting untuk navigasi panah/tab) */
+:focus-visible {
+  outline: calc(var(--garis) * 1.5) solid var(--red);
+  outline-offset: 3px;
+}
+
+/* ===== Latar ilustrasi flat ===== */
+.latar {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow-x: hidden;
+}
+
+/* Langit + garis lantai kuning (untuk layar slide) */
+.latar--lantai {
+  background: linear-gradient(
+    to bottom,
+    var(--sky) 0 72%,
+    var(--ink) 72% calc(72% + var(--garis)),
+    var(--yellow) calc(72% + var(--garis)) 100%
+  );
+}
+
+/* Latar polos (untuk halaman galeri/uji) */
+.latar--polos {
+  background: var(--sky);
+  place-items: start center;
+}
+
+/* Kanvas 16:9 tempat semua bagian materi diletakkan */
+.layar {
+  position: relative;
+  width: calc(var(--u) * 100);
+  height: calc(var(--u) * 56.25);
+}
+
+/* Awan sederhana */
+.awan {
+  position: absolute;
+  background: var(--white);
+  border: var(--garis) solid var(--ink);
+  border-radius: 999px;
+}
+
+/* ===== Tombol retro ===== */
+.tombol {
+  font-family: var(--font-pixel);
+  font-weight: 700;
+  font-size: var(--fs-label);
+  color: var(--ink);
+  background: var(--yellow);
+  border: var(--garis) solid var(--ink);
+  border-radius: 0;
+  padding: 0.4em 1em;
+  cursor: pointer;
+  box-shadow: calc(var(--geser) * 0.6) calc(var(--geser) * 0.6) 0 var(--ink);
+  transition: transform 0.08s steps(2), box-shadow 0.08s steps(2);
+}
+
+.tombol:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: calc(var(--geser) * 0.6 + 2px) calc(var(--geser) * 0.6 + 2px) 0 var(--ink);
+}
+
+.tombol:active {
+  transform: translate(calc(var(--geser) * 0.6), calc(var(--geser) * 0.6));
+  box-shadow: 0 0 0 var(--ink);
+}
+
+.tombol--biru {
+  background: var(--blue);
+  color: var(--cream);
+}
+
+.tombol--merah {
+  background: var(--red);
+  color: var(--cream);
+}
+
+/* ===== Hormati preferensi "kurangi gerakan" ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
